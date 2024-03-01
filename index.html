@@ -1,0 +1,1104 @@
+<!-- Created by Aaryadeep Roy -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <meta name="mobile-web-app-capable" content="yes"> 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+body{
+overflow:hidden;
+}
+@keyframes wing1 {
+from{transform:rotateY(0deg);}
+to{transform:rotateY(360deg);}
+}
+@keyframes wing2 {
+from{transform:rotateZ(0deg);}
+to{transform:rotateZ(360deg);}
+} 
+@keyframes ligth{
+from{Background:red;}
+to{Background:black;}
+} 
+#inGame{
+position:absolute;
+top:0px;
+left:3px;
+width:345px;
+height:390px;
+border:solid black 5px;
+background:aqua;
+}
+#player{
+Transition-duration:0.02s;
+position:absolute;
+left:40px;
+top:100px;
+}
+#enemy{
+position:absolute;
+left:500px;
+top:100px;
+transform:rotateY(180deg);
+}
+#head{
+width:45px;
+height:31px;
+background:black;
+border-radius:0px 15px 4px 2px;
+}
+#headF{
+position:absolute;
+left:25px;
+top:-0px;
+transform:rotateZ(164deg);
+width:10px;
+height:30px;
+background:black;
+border-radius:15px 0px 0px 15px;
+}
+#headF2{
+position:absolute;
+left:0px;
+top:0px;
+width:25px;
+height:2px;
+background:black;
+border-radius:0px 15px 0px 0px;
+}
+#boite{
+position:absolute;
+left:-7px;
+top:-4px;
+width:20px;
+height:10px;
+background:black;
+border-radius:5px 5px 5px 5px;
+} 
+#lampe{
+width:4px;
+height:3px;
+background:black;
+border-radius:2px 2px 2px 2px;
+position:absolute;
+left:-4px;
+top:-6px;
+} 
+#lum{
+animation:ligth 1s linear 0s infinite alternate;
+width:4px;
+height:4px;
+background:red;
+border-radius:20px 20px 2px 2px;
+position:absolute;
+left:0px;
+top:-3px;
+} 
+#tail{
+position:absolute;
+top:-10px;
+left:-50px;
+transform:rotateZ(-5deg);
+width:70px;
+height:60px;
+clip-path:polygon(20% 24%,19% 35%,74% 47%,75% 30%);
+background:black;
+} 
+#tail2{
+position:absolute;
+top:-5px;
+left:-53px;
+transform:rotateZ(20deg);
+width:40px;
+height:30px;
+background:black;
+clip-path:polygon(11% 23%,30% 18%,58% 42%,42% 49%);
+} 
+#baton{
+width:5px;
+height:15px;
+background:black;
+position:absolute;
+left:18px;
+top:-15px;
+} 
+#baton2{
+width:10px;
+height:6px;
+background:black;
+position:absolute;
+left:15px;
+top:-20px;
+} 
+#wing1{
+animation:wing1 0.02s linear 0s infinite;
+width:120px;
+height:3px;
+background:black;
+position:absolute;
+left:-40px;
+top:-18px;
+} 
+#wing2{
+animation:wing2 0.2s linear 0s infinite ;
+width:24px;
+height:3px;
+background:black;
+position:absolute;
+left:-48px;
+top:8px;
+} 
+#att{
+width:5px;
+height:14px;
+background:black;
+position:absolute;
+left:5px;
+top:30px;
+}
+#att2{
+width:5px;
+height:14px;
+background:black;
+position:absolute;
+left:35px;
+top:30px;
+}
+#att3{
+width:50px;
+height:4px;
+background:black;
+position:absolute;
+left:-2.5px;
+top:40px;
+}
+#stock{
+width:20px;
+height:7px;
+background:black;
+position:absolute;
+left:30px;
+top:20px;
+border-radius:4px 0px 0px 4px ;
+} 
+#up{
+position:absolute;
+background-color:gray;
+left:20px;
+top:400px;
+width:50px;
+Height:70px;
+} 
+#down{
+position:absolute;
+background-color:gray;
+left:20px;
+top:500px;
+width:50px;
+Height:70px;
+}
+#choot{
+position:absolute;
+left:250px;
+top:450px;
+width:80px;
+Height:80px;
+background:red;
+border-radius:10px;
+}
+#pose{
+position:absolute;
+left:150px;
+top:450px;
+width:40px;
+Height:40px;
+background:gray;
+}
+#missile{
+display:none;
+width:20px;
+height:5px;
+background:blue;
+position:absolute;
+left:20px;
+top:20px;
+}
+#msHead{
+width:15px;
+height:5px;
+background:red;
+position:absolute;
+left:12px;
+top:0px;
+clip-path:polygon(50% 100%,50% 0%,100% 50%);
+}
+#msP1{
+width:10px;
+height:10px;
+background:blue;
+position:absolute;
+left:0px;
+top:0px;
+clip-path:polygon(0% 100%,50% 0%,100% 50%);
+}
+#msP2{
+width:10px;
+height:10px;
+background:blue;
+position:absolute;
+left:0px;
+top:-5px;
+clip-path:polygon(0% 0%,50% 100%,100% 50%);
+}
+#flame{
+transform:rotate(-90deg);
+position:absolute;
+top:-38px;
+left:-60px;
+width:40px;
+Height:80px;
+background:linear-gradient(red,firebrick,tomato,yellow);
+clip-path: polygon(10% 55%, 21% 73%, 14% 46%, 25% 65%, 27% 39%, 31% 59%, 37% 26%, 38% 46%, 50% 9%, 54% 47%, 61% 32%, 63% 57%, 70% 44%, 70% 67%, 83% 56%, 73% 76%, 89% 65%, 74% 89%, 58% 98%, 34% 97%, 16% 81%);
+} 
+#an{
+width:50px;
+height:50px;
+background:black;
+position:absolute;
+left:105px;
+top:205px;
+border-radius:25px;
+}
+#cir{
+position:absolute;
+left:100px;
+top:200px;
+width:50px;
+height:50px;
+border-radius:100px;
+border:solid black 5px;
+position:absolute;
+}
+#so{
+font-size:20px;
+position:absolute;
+left:0px;
+top:20px;
+}
+#au{
+font-size:20px;
+position:absolute;
+left:0px;
+top:60px;
+}
+#bo{
+font-size:20px;
+position:absolute;
+left:0px;
+top:100px;
+}
+#pl{
+background-color:black;
+width:20px;
+height:20px;
+position:absolute;
+left:20px;
+top:20px;
+}
+#analod{
+display:none;
+position:absolute;
+left:-50px;
+top:250px;
+} 
+
+#mainMenu{
+display:none;
+} 
+.bt{
+width:150px;
+height:60px;
+position:absolute;
+font-size:20px;
+}
+#start{
+top:140px;
+left:110px;
+}
+#opt{
+top:220px;
+left:110px;
+}
+#abt{
+top:300px;
+left:110px;
+}
+#tips{
+background-color:gray;
+width:30px;
+height:30px;
+border-radius:40px;
+top:10px;
+left:10px;
+}
+#inGame{
+display:none;
+} 
+#inOpt{
+
+} 
+#border{
+border:solid black 2px;
+} 
+table{
+font-size:20px;
+}
+#inOption{
+display:none;
+}
+#toche{
+display:block;
+} 
+#quitBt{
+position:absolute;
+left:20px;
+top:5px;
+width:50px;
+height:30px;
+background-color:gray;
+}
+#abtUs{
+Display:none;
+}
+#resume{
+Z-index:10;
+font-size:30px;
+position:absolute;
+width:200px;
+Height:60px;
+background:gray;
+left:80px;
+top:150px;
+} 
+#restart{
+Z-index:10;
+font-size:30px;
+position:absolute;
+width:200px;
+Height:60px;
+background:gray;
+left:80px;
+top:250px;
+} 
+#quit{
+Z-index:10;
+font-size:30px;
+position:absolute;
+width:200px;
+Height:60px;
+background:gray;
+left:80px;
+top:350px;
+}
+#inPause{
+Z-index:10;
+display:none;
+}
+#gM{
+display:none;
+position:absolute;
+left:50px;
+top:-20px;
+Color:red;
+font-size:50px;
+}
+#sC{
+display:none;
+position:absolute;
+left:50px;
+top:60px;
+Color:black;
+font-size:30px;
+}
+.ch{
+position:absolute;
+width:20px;
+Height:20px;
+
+clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+}
+#one{
+background:gray;
+left:300px;
+top:400px;
+} 
+#two{
+background:gray;
+top:400px;
+left:270px;
+}
+#tree{
+background:gray;
+top:400px;
+left:240px;
+}
+#boom{
+position:absolute;
+width:250px;
+height:250px;
+top:-150px;
+left:-100px;
+display:none;
+}
+</style>
+</head>
+<body>
+
+<div id="mainMenu">
+<p id="gM" >game over! </p>
+<p id="sC" >score:0</p>
+<button id="start" class="bt" onclick="start();">start</button>
+<!--button id="tips" class="bt" onclick="info();" >?</button-->
+<button id="opt" class="bt" onclick="opt();">options</button>
+<button id="abt" class="bt" onclick="aBout_us();" >about us</button>
+</div>
+
+<p id="abtUs">
+<button class="btnBack" onclick="abtBack();"><==</button><br/>
+<br/><br/><br/><br/>
+Created by RAJAT RANJAN<br/> </br>
+<br>
+<br/>
+version 3.0
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/>
+
+         
+</p>
+
+<div id="inGame">
+<div id="player">
+<div id="head"></div>
+<div id="headF"></div>
+<div id="headF2"></div>
+<div id="boite"></div>
+<div id="lampe">
+<div id="lum"></div>
+</div>
+<div id="tail"></div>
+<div id="tail2"></div>
+<div id="baton"></div>
+<div id="baton2"></div>
+<div id="wing1"></div>
+<div id="wing2"></div>
+<div id="att"></div>
+<div id="att2"></div>
+<div id="att3"></div>
+<div id="stock"></div>
+<div id="missile">
+<div id="msHead"></div>
+<div id="msP1"></div>
+<div id="msP2"></div>
+<div id="flame"></div>
+</div>
+</div>
+<div id="analod">
+<div id="cir"></div>
+<div id="an"></div>
+</div>
+<div id="one" class="ch"></div>
+<div id="two" class="ch"></div>
+<div id="tree" class="ch"></div>
+<button id="choot" onclick="choot();"></button>
+<button id="pose" onclick="pause();">||</button>
+
+
+<p id="donnee"></p>
+<p id="donnee2"></p>
+<div id="toche">
+<button id="up"  onclick="up();" ontouchstart="upS()" ontouchend="upE();"></button>
+<button id="down"  onclick="down();" ontouchstart="dwS()" ontouchend="dwE();"></button>
+</div>
+</div>
+<div id="inOption">
+<button id="quitBt" onclick="quitOp();"><==</button>
+
+<table>
+<th>control menu</th>
+<tr>
+<td id="border">select command type
+<select id="command" onchange="common();">
+<option value="tou">touches 🎹</option>
+<option value="ana">joystick 🕹 </option>
+</select>
+</td>
+</tr>
+<tr>
+<td id="border">select command color
+<input type="color" id="cmCol"></input>
+</td>
+</tr>
+
+<tr>
+<td id="border">enable vibration 
+<input type="checkbox" id="vb"></input>
+</td>
+</tr>
+
+<tr>
+<td id="border">enable animation 
+<input type="checkbox" id="anime"></input>
+</td>
+</tr>
+<tr>
+<td id="border">enable background
+<input type="checkbox" id="bckg"></input>
+</td>
+</tr>
+<th>game menu</th>
+<tr>
+<td id="border">select difficulty 
+<select id="dif">
+<option value="vEa">very easy</option>
+<option value="ea">easy</option>
+<option value="nr">normal</option>
+<option value="ha">hard</option>
+<option value="vHa">very hard</option>
+<option value="vt">veterant</option>
+<option value="im">impossible</option>
+</select>
+</td>
+</tr>
+</table>
+</div>
+<div id="inPause">
+<p id="pT">paused</p>
+<button id="resume" onclick="resum();">resume</button>
+<button id="restart" onclick="res();">restart</button>
+<button id="quit" onclick="quit();">quit</button>
+</div>
+
+<script>
+var abtUs=document.getElementById("abtUs");
+var anime=document.getElementById("anime");
+var cmCol=document.getElementById("cmCol");
+var com=document.getElementById("command");
+var ms=document.getElementById("missile");
+var bckg=document.getElementById("bckg");
+var dif=document.getElementById("dif");
+var paused=true;
+var vibrato=false;
+var msGo=false;
+var msLeft=20;
+var upP=false;
+var dwP=false;
+var un=false,deux=false,trois=false;
+var colu;
+var vb=document.getElementById("vb");
+var an=document.getElementById("an");
+var y,x,a,b,c,aa,bb,cc,w,h;
+var so=document.getElementById("so");
+var au=document.getElementById("au");
+var bo=document.getElementById("bo");
+var pl=document.getElementById("pl");
+var ups=document.getElementById("up");
+var haut=document.querySelector("#up");
+var bas=document.querySelector("#down");
+var ch=document.querySelector("#choot");
+var gM=document.getElementById("gM");
+var sC=document.getElementById("sC");
+var enSpeed;
+var enFr=3000;
+anime.checked=true;
+var downs=document.getElementById("down");
+window.onload=()=>{
+w=window.innerWidth;
+h=window.innerHeight;
+
+enSpeed=1;
+} 
+var pl=document.getElementById("player"),
+plTop=100,plLeft=40,msTop=20,enTop=[],enLeft=[],boom=[],en=[],lDis=[],hDis=[],score=0;
+function up(){
+if(!paused){
+if(plTop>20){
+//msTop-=20;
+plTop-=20;
+pl.style.top=plTop+"px";
+}}} 
+function down(){
+if(!paused){
+if(plTop<340){
+//msTop+=20;
+plTop+=20;
+pl.style.top=plTop+"px";
+}}}
+function choot(){
+if(!paused){
+msGo=true;
+ms.style.display="block";
+}}
+
+function upS(){
+upP=true;
+}
+function upE(){
+upP=false;
+}
+function dwS(){
+dwP=true;
+}
+function dwE(){
+dwP=false;
+} 
+setInterval(function(){
+if(upP){
+up();
+}
+if(dwP){
+down();
+}
+},140);
+setInterval(function(){
+if(msGo){
+if(!paused){
+if(msLeft<400){
+msLeft+=10;
+ms.style.left=msLeft+"px";
+haut.disabled=true;
+bas.disabled=true;
+ch.disabled=true;
+}
+else{
+setTimeout(function(){
+msBack();
+},400)
+}
+}}},1);
+
+function msBack(){
+ms.style.display="none";
+msLeft=20;
+ms.style.left=msLeft+"px";
+msGo=false;
+haut.disabled=false;
+bas.disabled=false;
+ch.disabled=false;
+}
+function pause(){
+if(paused){
+paused=false;
+inPause.style.display="none";
+}
+else{paused=true;
+inPause.style.display="block";
+} 
+}
+
+function createEnemy(){
+if(!paused){
+var enemy=document.createElement("div");
+document.body.appendChild(enemy);
+enemy.id="enemy"
+var colu;
+var head=document.createElement("div");
+var headF=document.createElement("div");
+var headF2=document.createElement("div");
+var boite=document.createElement("div");
+var lampe=document.createElement("div");
+var lum=document.createElement("div");
+var tail=document.createElement("div");
+var tail2=document.createElement("div");
+var baton=document.createElement("div");
+var baton2=document.createElement("div");
+var wing1=document.createElement("div");
+var wing2=document.createElement("div");
+var att=document.createElement("div");
+var att2=document.createElement("div");
+var att3=document.createElement("div");
+var customor=document.getElementById("customor");
+var bombe=document.createElement("img");
+bombe.id="boom";
+var custP=false;
+if(anime.checked==true){
+lum.style.animation="ligth 1s linear 0s infinite alternate";
+wing1.style.animation="wing1 0.02s linear 0s infinite";
+wing2.style.animation="wing2 0.2s linear 0s infinite";
+}
+else if(anime.checked==false){
+lum.style.animation="or";
+wing1.style.animation="or";
+wing2.style.animation="nor";
+}
+enemy.appendChild(head);
+enemy.appendChild(headF);
+enemy.appendChild(headF2);
+enemy.appendChild(boite);
+enemy.appendChild(lampe);
+lampe.appendChild(lum);
+enemy.appendChild(tail);
+enemy.appendChild(tail2);
+enemy.appendChild(baton);
+enemy.appendChild(baton2);
+enemy.appendChild(wing1);
+enemy.appendChild(wing2);
+enemy.appendChild(att);
+enemy.appendChild(att2);
+enemy.appendChild(att3);
+enemy.appendChild(bombe);
+lDis.push();
+hDis.push();
+boom.push(bombe);
+head.id="head";
+headF.id="headF";
+headF2.id="headF2";
+boite.id="boite";
+lampe.id="lampe";
+lum.id="lum";
+tail.id="tail";
+tail2.id="tail2";
+baton.id="baton";
+baton2.id="baton2";
+wing1.id="wing1";
+wing2.id="wing2";
+att.id="att";
+att2.id="att2";
+att3.id="att3";
+var tRand=Math.floor(Math.random()*17);
+var t=[20, 40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340];
+enTop.push(t[tRand]);
+enLeft.push(500);
+en.push(enemy);
+enemy.style.top=t[tRand]+"px";
+}}
+setInterval(function(){
+for(let i=0;i<en.length;i++){
+if(!paused){
+if(enLeft[i]>-140){
+enLeft[i]-=enSpeed;
+en[i].style.left=enLeft[i]+"px";
+}
+else{
+if(un==false){un=true
+one.style.background="red";
+} 
+else if(deux==false){
+deux=true;
+two.style.background="red";
+} 
+else if(trois==false){trois=true
+tree.style.background="red";
+}
+if(trois==true){
+un=false;
+deux=false;
+trois=false;
+one.style.background="gray";
+two.style.background="gray";
+tree.style.background="gray";
+enLeft[i]=Infinity;
+enTop[i]=Infinity;
+en[i].remove();
+quit();
+}
+en[i].remove();
+enLeft[i]=Infinity;
+enTop[i]=Infinity;
+}
+}
+}
+},10);
+
+setInterval(function(){
+for(let i=0;i<en.length;i++){
+if(enLeft[i]>msLeft){lDis[i]=enLeft[i]-msLeft;} 
+else{lDis[i]=msLeft-enLeft[i];}
+if(enTop[i]==plTop+20 || enTop[i]==plTop-20 || enTop[i]==plTop){
+if(enLeft[i]>96){
+if(lDis[i]<50){
+if(msGo){
+score+=100;
+sC.innerHTML="score:"+score;
+boom[i].style.display="block";
+boom[i].src="https://i.gifer.com/3IsK.gif";
+setTimeout(function(){en[i].remove();
+boom[i].style.display="n";
+boom[i].src="";
+},300);
+enLeft[i]=Infinity;
+enTop[i]=Infinity;
+enChocked();
+if(vibrato){
+navigator.vibrate(300);}
+}}
+}} 
+if(enTop[i]==plTop+20 || enTop[i]==plTop-20 || enTop[i]==plTop+40 || enTop[i]==plTop-40 || enTop[i]==plTop){
+if(enLeft[i]>-120 && enLeft[i]<200){}} 
+}},10);
+
+createEnemy();
+
+
+function enChocked(){
+for(let i=0;i<en.length;i++){
+
+msBack();
+}} 
+
+an.addEventListener("touchend",function(){
+an.style.top="205px";
+a=0;
+b=0;
+})
+an.addEventListener("touchmove",
+function move(e){
+y=e.touches[0].clientY-0;
+x=e.touches[0].clientX;
+a=x-(y/1.5);
+b=-(w-y-160); 
+c=Math.round(Math.sqrt(a*a+b*b)) 
+if(c>60){
+cc=20;
+aa=(a*cc)/c;
+bb=(b*cc)/c;
+a=aa;
+b=bb;
+c=cc;
+//an.style.transform="translate("+0+"px"+a+"px)";
+an.style.top=b+205+"px";
+
+if(b>0){b=20
+down();
+} 
+if(b<0){
+up();
+b=-20}
+}
+})
+function start(){
+pause();
+inGame.style.display="block";
+mainMenu.style.display="none";
+colu=true;
+}
+function opt(){
+mainMenu.style.display="none";
+inOption.style.display="block";
+}
+function common(){
+if(com.value=="tou"){
+toche.style.display="block";
+analod.style.display="none";
+}
+else{
+toche.style.display="none";
+analod.style.display="block";} 
+} 
+function quitOp(){
+mainMenu.style.display="block";
+inOption.style.display="none";
+} 
+setInterval(function(){
+an.style.background=cmCol.value;
+ups.style.background=cmCol.value;
+downs.style.background=cmCol.value
+//animation
+if(anime.checked==true){
+var lum=document.getElementById("lum");
+var wing1=document.getElementById("wing1");
+var wing2=document.getElementById("wing2");
+lum.style.animation="ligth 1s linear 0s infinite alternate";
+wing1.style.animation="wing1 0.02s linear 0s infinite";
+wing2.style.animation="wing2 0.2s linear 0s infinite";
+}
+else if(anime.checked==false){
+var lum=document.getElementById("lum");
+var wing1=document.getElementById("wing1");
+var wing2=document.getElementById("wing2");
+lum.style.animation="or";
+wing1.style.animation="or";
+wing2.style.animation="nor";
+}
+if(vb.checked==true){
+vibrato=true;
+} 
+else if(vb.checked==false){
+vibrato=false;
+} 
+
+if(bckg.checked==true){
+inGame.style.background="aqua";
+} 
+else if(bckg.checked==false){
+inGame.style.background="white";
+} 
+if(dif.value=="vEa"){
+enSpeed=0.9;
+} 
+else if(dif.value=="ea"){
+enSpeed=1.3;
+}
+else if(dif.value=="nr"){
+enSpeed=1.7;
+}
+else if(dif.value=="ha"){
+enSpeed=2.1;
+}
+else if(dif.value=="vHa"){
+enSpeed=2.5;
+}
+else if(dif.value=="vt"){
+enSpeed=2.9;
+}
+else if(dif.value=="im"){
+enFr=600;
+enSpeed=3.3;
+}
+},300);
+function cust(){
+customor.style.display="block";
+custP=true;
+}
+function aBout_us(){
+mainMenu.style.display="none";
+abtUs.style.display="block";
+} 
+function abtBack(){
+mainMenu.style.display="block";
+abtUs.style.display="none";
+}
+/*function hurted(){
+quit();
+res();
+document.getElementById("start").disabled=true;
+document.getElementById("opt").disabled=true;
+document.getElementById("abt").disabled=true;
+setTimeout(function(){
+document.getElementById("start").disabled=false;
+document.getElementById("opt").disabled=false;
+document.getElementById("abt").disabled=false;
+},0)
+
+}*/
+function quit(){
+gM.style.display="block";
+sC.style.display="block";
+paused=true;
+inPause.style.display="none";
+inGame.style.display="none";
+mainMenu.style.display="block";
+for(let i=0;i<en.length;i++){
+en[i].remove();
+enLeft[i]=Infinity;
+enTop[i]=Infinity;
+}} 
+function res(){
+for(let i=0;i<en.length;i++){
+en[i].remove();} 
+plTop=100;
+pl.style.top=plTop+"px";
+msBack();
+inPause.style.display="none";
+paused=false;
+} 
+function resum(){
+paused=false;
+inPause.style.display="none";
+} 
+setInterval(function (){
+if(colu){
+for(let i=0;i<en.length;i++){
+
+if(plLeft>enLeft[i]){hDis[i]=plLeft-enLeft[i]}
+else if(plLeft<enLeft[i]){hDis[i]=enLeft[i]-plLeft}
+/*so.innerHTML="Hdis:"+hDis[0];
+bo.innerHTML="enLeft:"+enLeft[0];*/
+if(enTop[i]==plTop+20 || enTop[i]==plTop-20 || enTop[i]==plTop+20 || enTop[i]==plTop-40 || enTop[i]==plTop){
+if(hDis[i]<50){
+if(!paused){
+en[i].remove();
+enLeft[i]=Infinity;
+enTop[i]=Infinity;
+colu=false;
+quit();
+}}}  
+}}
+},100);
+setInterval(createEnemy,enFr);
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <meta name="mobile-web-app-capable" content="yes"> 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+<style>
+#logo{
+
+} 
+#logoP{
+position:absolute;
+font-size:280%;
+top:30%;
+left:0%;
+} 
+#logoLine{
+transition-duration:0.2s;
+position:absolute;
+background-color:black;
+width:0px;
+height:10px;
+left:0%;
+top:290px;
+} 
+</style>
+</head>
+<body>
+<div id="logo">
+<p id="logoP"></p>
+<div id="logoLine"></div>
+</div>
+<script>
+var letter=["", "#", "R", "A", "J", "A", "T", "R", "A", "N", "J" ,"A","N"]; 
+var logIndex=0;
+var logWidth=0;
+var logoW=innerWidth-50;
+var logoTimer=120;
+setInterval(function(){
+if(logIndex<11 && logIndex>-1){
+logIndex++;
+logoP.innerHTML+=letter[logIndex]
+
+}
+else{
+logIndex=-1;
+logoP.innerHTML="RAJAT RANJAN";
+} 
+if(logWidth<logoW){
+if(logIndex==-1){
+logWidth+=50;
+logoLine.style.width=logWidth+"px";
+setTimeout(function(){
+logoTimer=999999999999999999;
+},1000) 
+setTimeout(function(){
+logoEnd();
+},1500) 
+}} 
+},logoTimer)
+function logoEnd(){
+logo.style.display="none";
+mainMenu.style.display="block";
+} 
+</script>
+</body>
+</html>
